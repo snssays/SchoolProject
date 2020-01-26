@@ -1,10 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function About() {
+function About(...rest) {
+  let { username } = useParams();
   return (
     <React.Fragment>
-      {console.log("In about " + JSON.stringify(this.props))}I am In About{" "}
-      {this.props.match.params.username}
+      {console.log("In about " + JSON.stringify(rest))}I am In About {username}
     </React.Fragment>
   );
 }

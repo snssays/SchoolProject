@@ -1,8 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
-import isUserAuthCheck from "../../Utils/SessionStorage";
+import { clearSession } from "../../Utils/SessionStorage";
+import { Redirect, useHistory } from "react-router-dom";
 
 function NavBar() {
+  let history = useHistory();
+  const cleanUp = e => {
+    clearSession();
+    return <Redirect to="/signIn"></Redirect>;
+  };
+
   return (
     <React.Fragment>
       {console.log("In Nav-Bar")}
@@ -15,8 +22,9 @@ function NavBar() {
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/contact">Contact</Nav.Link>
         </Nav>
-        )}
-        <Button variant="outline-secondary">Logout</Button>
+        <Button variant="outline-secondary" onClick={cleanUp}>
+          Logout
+        </Button>
       </Navbar>
     </React.Fragment>
   );

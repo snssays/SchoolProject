@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
-body:before {
+.higher:before {
   content: "";
   position: fixed;
   width: 100vw;
@@ -24,7 +24,7 @@ body:before {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 500px;
+  height: 520px;
   padding: 80px 40px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.5);

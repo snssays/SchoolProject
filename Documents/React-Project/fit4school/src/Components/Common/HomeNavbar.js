@@ -1,30 +1,20 @@
-import React, { Component } from "react";
-class HomeNavbar extends Component {
-  //   constructor(props) {
-  //     super(props);
+import React from "react";
+import { withRouter } from "react-router-dom";
 
-  //     this.state = {
-  //       planb: false
-  //     };
-  //   }
+function HomeNavbar(props) {
+  const signInPage = e => {
+    e.preventDefault();
+    props.history.push("/signIn");
+  };
 
-  //   tester = () => {
-  //     console.log("HEY");
-  //     this.setState({
-  //       planb: !this.state.planb
-  //     });
-  //   };
-
-  render() {
-    return (
-      <div className="HomepageNav">
-        <span className="logo">FITNESS</span>
-        <span className="signin">
-          <button onClick={this.props.toggleSignInPopUp}>Sign in</button>
-        </span>
-      </div>
-    );
-  }
+  return (
+    <div className="HomepageNav">
+      <span className="logo">FITNESS</span>
+      <span className="signin">
+        <button onClick={signInPage}>Sign in</button>
+      </span>
+    </div>
+  );
 }
 
-export default HomeNavbar;
+export default withRouter(HomeNavbar);
